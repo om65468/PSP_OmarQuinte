@@ -9,10 +9,6 @@ int main(void)
 {
   int  fp, fp2;
   int  p, p2, num1, cont, total;
-
-   p=mkfifo("FIFO1", 0666);
-   p2=mkfifo("FIFO2", 0666);
-   
   
 	fp = open("FIFO1", 0);
 	read(fp,&num1,sizeof(num1)); 
@@ -30,9 +26,6 @@ int main(void)
 	
 	close(fp2);
 	 
-	 remove("FIFO1");
-	 remove("FIFO2");
-   
 return 0; 
 }
 
