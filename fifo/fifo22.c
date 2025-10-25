@@ -8,13 +8,9 @@
 int main(void)
 {
   int  fp, fp2,num1, cont, total,bytesleidos;
-  char buffer[10];
+  char buffer[100];
   char buffer2[1000];
 
-   mkfifo("FIFO2", 0666);
-  
-   while (1)
-	{
 	fp = open("FIFO2", 0);
 	bytesleidos=read(fp,buffer,sizeof(buffer) - 1) ; 
 	close(fp);
@@ -36,8 +32,6 @@ int main(void)
       write(fp2, buffer2, strlen(buffer2) + 1);  
       close(fp2);
     }
-  }
-	 
-   
+ 
 return 0; 
 }
