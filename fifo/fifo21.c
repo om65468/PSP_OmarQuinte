@@ -24,7 +24,7 @@ int main(void)
    sprintf(buffer, "%d", num1);
    
    write(fp, buffer,strlen(buffer)+1);
-   close(fp);
+   close(fp2);
 
  
   fp2=open("FIFO2", 0);
@@ -34,5 +34,6 @@ int main(void)
     printf("El resultado recibido es: %s\n", buffer2);
   }  
   close(fp2);
+  remove("FIFO2");
    return 0;
 }
