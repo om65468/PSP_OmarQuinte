@@ -86,7 +86,7 @@ public class FTPServidor {
 
 
     private static void subirFichero(FTPClient cliente, String rutaLocal, String rutaRemota) throws IOException {
-        cliente.setFileType(FTP.BINARY_FILE_TYPE); // Siempre modo binario como hablamos antes
+        cliente.setFileType(FTP.BINARY_FILE_TYPE); 
         BufferedInputStream in = new BufferedInputStream(new FileInputStream(rutaLocal));
         
         if (cliente.storeFile(rutaRemota, in)) {
@@ -126,7 +126,6 @@ public class FTPServidor {
         int codigo = cliente.getReplyCode();
         String respuesta = cliente.getReplyString();
         
-        // Basado en tu ClienteFTP1.java
         if (FTPReply.isPositiveCompletion(codigo)) {
             System.out.println("Operación exitosa [" + codigo + "]: " + respuesta);
         } else {
